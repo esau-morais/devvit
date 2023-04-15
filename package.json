@@ -10,6 +10,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.16.2",
+    "@planetscale/database": "^1.7.0",
     "@prisma/client": "^4.11.0",
     "@tanstack/react-query": "^4.28.0",
     "@trpc/client": "^10.18.0",
@@ -33,6 +35,8 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.36.0",
     "eslint-config-next": "^13.2.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.6",
     "prettier-plugin-tailwindcss": "^0.2.6",
