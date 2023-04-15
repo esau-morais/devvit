@@ -2,9 +2,16 @@
 
 import { api } from '@/utils/api';
 import { type ReactNode } from 'react';
+import { TopBar } from './TopBar';
 
-const TRPCWrapper = ({ children }: { children: ReactNode }) => {
-  return <>{children}</>;
-};
+export const TRPCWrapper = api.withTRPC(
+  ({ children }: { children: ReactNode }) => {
+    return (
+      <>
+        <TopBar />
 
-export default api.withTRPC(TRPCWrapper);
+        <main>{children}</main>
+      </>
+    );
+  }
+);
