@@ -6,11 +6,11 @@ import {
 } from '@/components/ui/NavigationMenu';
 import { Search } from '@/components/Search';
 import Link from 'next/link';
-import { UserDropdown } from './UserDropdown';
+import { ModeToggle } from './ModeToggle';
 
 export const TopBar = () => {
   return (
-    <NavigationMenu className="bg-[#EBEBEB]/80 backdrop-blur-md dark:bg-slate-700/80">
+    <NavigationMenu className="border-b border-b-zinc-300 bg-light/70 backdrop-blur-md dark:border-b-dark-secondary dark:bg-dark/70">
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
@@ -36,7 +36,7 @@ export const TopBar = () => {
         </NavigationMenuItem>
 
         <NavigationMenuItem className="flex items-center space-x-2">
-          <UserDropdown />
+          <ModeToggle />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
