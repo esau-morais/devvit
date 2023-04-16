@@ -35,7 +35,7 @@ const RootLayout = ({
     >
       <head />
       <body>
-        <TRPCWrapper modal={modal}>
+        <TRPCWrapper>
           {children}
           {modal}
         </TRPCWrapper>

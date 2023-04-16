@@ -5,11 +5,12 @@ import { type ReactNode } from 'react';
 import { TopBar } from './TopBar';
 
 export const TRPCWrapper = api.withTRPC(
-  ({ children, modal }: { children: ReactNode }) => {
+  ({ children }: { children: ReactNode[] }) => {
     return (
       <>
+        <TopBar />
+
         <main>{children}</main>
-        {modal}
       </>
     );
   }
