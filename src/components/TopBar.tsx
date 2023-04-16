@@ -5,14 +5,12 @@ import {
   NavigationMenuLink,
 } from '@/components/ui/NavigationMenu';
 import { Search } from '@/components/Search';
-import { Button } from './ui/Button';
-import { LayoutGrid, LayoutList } from 'lucide-react';
-import { Separator } from '@/components/ui/Separator';
 import Link from 'next/link';
+import { UserDropdown } from './UserDropdown';
 
 export const TopBar = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="bg-[#EBEBEB]/80 backdrop-blur-md dark:bg-slate-700/80">
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
@@ -21,9 +19,9 @@ export const TopBar = () => {
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="mr-2 h-6 w-6"
               >
                 <circle cx="12" cy="12" r="10"></circle>
@@ -37,17 +35,8 @@ export const TopBar = () => {
           <Search />
         </NavigationMenuItem>
 
-        <NavigationMenuItem className="inline-flex rounded-md bg-zinc-100 dark:bg-slate-600">
-          <Button variant="ghost">
-            <LayoutList width={16} height={16} />
-          </Button>
-          <Separator
-            orientation="vertical"
-            className="mx-1.5 h-5 self-center"
-          />
-          <Button variant="ghost">
-            <LayoutGrid width={16} />
-          </Button>
+        <NavigationMenuItem className="flex items-center space-x-2">
+          <UserDropdown />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

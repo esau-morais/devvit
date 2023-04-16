@@ -1,5 +1,4 @@
 import { TRPCWrapper } from '@/components/tRPCWrapper';
-import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import { type ReactNode } from 'react';
 import { Space_Grotesk } from 'next/font/google';
 import { cn } from '@/utils/classNames';
@@ -12,21 +11,36 @@ const fontSpaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+export const metadata = {
+  title: {
+    default: 'Devvit',
+    template: '%s | Devvit',
+  },
+};
+
+const RootLayout = ({
+  children,
+  modal,
+}: {
+  children: ReactNode;
+  modal: ReactNode;
+}) => {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <head />
-        <body
-          className={cn(
-            'bg-[#EBEBEB] font-sans dark:bg-[#131313]',
-            fontSpaceGrotesk.variable
-          )}
-        >
-          <TRPCWrapper>{children}</TRPCWrapper>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html
+      lang="en"
+      className={cn(
+        'min-h-screen w-full bg-[#EBEBEB] font-sans dark:bg-[#131313]',
+        fontSpaceGrotesk.variable
+      )}
+    >
+      <head />
+      <body>
+        <TRPCWrapper modal={modal}>
+          {children}
+          {modal}
+        </TRPCWrapper>
+      </body>
+    </html>
   );
 };
 
