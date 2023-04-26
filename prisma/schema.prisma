@@ -10,38 +10,26 @@ datasource db {
 
 model Devvit {
   id        Int       @id @default(autoincrement())
-  title     String
-  content   String
-  authorId  Int
+  title     String    @db.VarChar(300)
+  content   String?
+  authorId  String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  author    User      @relation(fields: [authorId], references: [id])
-  comments  Comment[]
+  // comments  Comment[]
+  Comment   Comment[]
 
   @@index([authorId])
-}
-
-model User {
-  id        Int       @id @default(autoincrement())
-  name      String
-  email     String    @unique
-  password  String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  devvits   Devvit[]
-  Comment   Comment[]
 }
 
 model Comment {
   id        Int      @id @default(autoincrement())
   content   String
-  authorId  Int
-  postId    Int
+  authorId  String
+  devvitId  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  author    User     @relation(fields: [authorId], references: [id])
-  post      Devvit   @relation(fields: [postId], references: [id])
+  devvit    Devvit   @relation(fields: [devvitId], references: [id])
 
   @@index([authorId])
-  @@index([postId])
+  @@index([devvitId])
 }

@@ -11,5 +11,5 @@ export const Devvit = ({ id }: { id: string }) => {
 
   if (!data) return <div>could not retrieve reddits this time :(</div>;
 
-  return <>{data.title}</>;
+  return <>{data.post.title}</>;
 };

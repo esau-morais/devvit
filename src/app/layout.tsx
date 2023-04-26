@@ -1,10 +1,10 @@
+import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import { TRPCWrapper } from '@/components/tRPCWrapper';
 import { type ReactNode } from 'react';
 import { Space_Grotesk } from 'next/font/google';
 import { cn } from '@/utils/classNames';
 
 import '@/styles/globals.css';
-import { ThemeProvider } from '@/components/ThemeProvider';
 
 const fontSpaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -27,20 +27,22 @@ const RootLayout = ({
   modal: ReactNode;
 }) => {
   return (
-    <html lang="en">
-      <head />
-      <body
-        className={cn(
-          'min-h-screen w-full bg-light font-sans dark:bg-dark',
-          fontSpaceGrotesk.variable
-        )}
-      >
-        <TRPCWrapper>
-          {children}
-          {modal}
-        </TRPCWrapper>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <head />
+        <body
+          className={cn(
+            'min-h-screen w-full bg-background font-sans dark:bg-background',
+            fontSpaceGrotesk.variable
+          )}
+        >
+          <TRPCWrapper>
+            {children}
+            {modal}
+          </TRPCWrapper>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 };
 

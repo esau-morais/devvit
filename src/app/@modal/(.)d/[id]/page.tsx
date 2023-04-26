@@ -1,11 +1,5 @@
 import { Devvit } from '@/components/Devvit';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/Dialog';
+import { Dialog, DialogContent } from '@/components/ui/Dialog';
 
 const DevvitPreview = ({
   params: { id: devvitId },
