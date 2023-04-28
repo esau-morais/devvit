@@ -4,6 +4,7 @@ import { api } from '@/utils/api';
 import { type ReactNode } from 'react';
 import { TopBar } from './TopBar';
 import { ThemeProvider } from 'next-themes';
+import { Toaster } from 'react-hot-toast';
 
 export const TRPCWrapper = api.withTRPC(
   ({ children }: { children: ReactNode }) => {
@@ -12,6 +13,8 @@ export const TRPCWrapper = api.withTRPC(
         <TopBar />
 
         <main className="mx-auto max-w-3xl py-4 xl:max-w-4xl">{children}</main>
+
+        <Toaster />
       </ThemeProvider>
     );
   }
