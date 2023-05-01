@@ -11,7 +11,7 @@ datasource db {
 model Devvit {
   id        Int       @id @default(autoincrement())
   title     String    @db.VarChar(300)
-  content   String?
+  content   String?   @db.Text
   authorId  String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt

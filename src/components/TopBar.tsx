@@ -42,7 +42,7 @@ export const TopBar = () => {
         <NavigationMenuItem className="flex items-center space-x-2">
           <Link href="/submit" legacyBehavior passHref>
             <NavigationMenuLink className="inline-flex items-center">
-              <Plus />
+              <Plus className="dark:text-slate-400 dark:hover:text-foreground" />
             </NavigationMenuLink>
           </Link>
           <ModeToggle />

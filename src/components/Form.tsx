@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { type Prisma } from '@prisma/client';
 import { useRouter } from 'next/navigation';
+import { Textarea } from './ui/Textarea';
 
 export const Form = () => {
   const router = useRouter();
@@ -38,6 +39,7 @@ export const Form = () => {
 
   return (
     <form
+      className="flex flex-col"
       onSubmit={(e) => {
         e.preventDefault();
         mutate(input);
@@ -61,9 +63,9 @@ export const Form = () => {
             }
             disabled={isPosting}
           />
-          <Input
+          <Textarea
             placeholder="Text (optional)"
-            value={input.content}
+            value={input.content ?? ''}
             onChange={(e) =>
               setInput((prevState) => ({
                 ...prevState,
@@ -82,7 +84,7 @@ export const Form = () => {
         </TabsContent>
       </Tabs>
 
-      <Button className="mt-4" type="submit" disabled={isPosting}>
+      <Button className="mt-4 self-end" type="submit" disabled={isPosting}>
         Post
       </Button>
     </form>
